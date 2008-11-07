@@ -1,4 +1,5 @@
-= jQuery Templates
+jQuery Templates
+================================================================================
 
 A jQuery templating engine that allows embedded javascript templates for easy client side UI processing.
 
@@ -9,17 +10,17 @@ To load all templates:
 
 Usually this is done when the document is ready, for example:
 
-<pre>
+
 $(document).ready(function() {
   $.loadTemplates();
 });
-</pre>
+
 
 Templates are loaded in the DOM as <script/> tags and the rules are simple. Set the attribute to 'type="text/x-jquery-template"' and the title to what you would like to name the template. You will use the name to render the template later.
 
 Let's consider a simple example of a template to generate a select box for entities:
 
-<pre>
+
 <script type="text/x-jquery-template" title="entities">
   <select>
     <option value="">[new]</option>
@@ -28,40 +29,40 @@ Let's consider a simple example of a template to generate a select box for entit
     <% }); %>
   </select>
 </script>
-</pre>
+
 
 $.loadTemplates() 'compiles' the template with title 'entities' into the $.templates object and is directly accessable as $.templates.entites. Templates are compiled into JS functions that you can call passing in template 'local' data. For examle:
 
-<pre>
+
 var html = $.templates.entites(
  [{value: 1, name: "foo"}, {value: 2, name: "bar" }]
 );
-</pre>
+
 
 After running this the 'html' variable will contain:
-<pre>
+
   <select>
     <option value="">[new]</option>
     <option value="1"> foo </option>
     <option value="2"> bar </option>
   </select>
-</pre>
+
 Using jQuery this can be inserted directly into the DOM:
 
-<pre>
+
 $("body").append(html);
-</pre>
+
 
 OR
 
-<pre>
+
 html.appendTo($("body"));
-</pre>
+
 
 
 Helper methods may also be added to the templater, currently it comes with a 'partial' helper available. The 'partial()' helper allows us to call a named template from within another template.
 
-<pre>
+
 partial("other-partial-title", ...local data...);
-</pre>
+
 
