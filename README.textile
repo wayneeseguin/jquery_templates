@@ -1,0 +1,5 @@
+= jQuery Templates
+
+A jQuery templating engine that allows embedded javascript templates for easy client side UI processing.
+
+see http://github.com/merblogger for real application usage examples.
